@@ -1,3 +1,4 @@
+import 'package:find_job/screens/search/search.dart';
 import 'package:flutter/material.dart';
 
 class SearchCard extends StatelessWidget {
@@ -35,27 +36,33 @@ class SearchCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30),
-          Container(
-            padding: EdgeInsets.all(15),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Row(
-              children: [
-                Image.asset(
-                  'assets/icons/search_icon.png',
-                  width: 20,
-                ),
-                SizedBox(width: 10),
-                Text(
-                  'Search',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 18,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => SearchPage()));
+            },
+            child: Container(
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/icons/search_icon.png',
+                    width: 20,
                   ),
-                ),
-              ],
+                  SizedBox(width: 10),
+                  Text(
+                    'Search',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

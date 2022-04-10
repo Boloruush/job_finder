@@ -1,3 +1,4 @@
+import 'package:find_job/screens/home/widgets/job_detial.dart';
 import 'package:find_job/screens/home/widgets/job_item.dart';
 import 'package:flutter/material.dart';
 import 'package:find_job/models/job.dart';
@@ -14,7 +15,15 @@ class JobList extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: 25,
           ),
-          itemBuilder: (context, index) => JobItem(jobList[index]),
+          itemBuilder: (context, index) => GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
+                    isScrollControlled: true,
+                    context: context,
+                    builder: (context) => JobDetial(jobList[index]));
+              },
+              child: JobItem(jobList[index])),
           separatorBuilder: (_, index) => SizedBox(
                 width: 15,
               ),
